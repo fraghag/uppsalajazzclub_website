@@ -1,0 +1,53 @@
+name: Update Events Data
+
+on:
+  schedule:
+    # Run daily at 03:00 UTC
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: |
+          cd fetcher
+          uv sync
+
+      - name: Fetch events from Facebook
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: uv run --project fetcher fetcher/fetch_events.py
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changes_exist=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changes exist
+        if: steps.git-check.outputs.changes_exist == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/events.json
+          git commit -m "chore: auto-update events data"
+          git push

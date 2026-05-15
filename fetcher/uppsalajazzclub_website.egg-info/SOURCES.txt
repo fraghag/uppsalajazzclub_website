@@ -1,0 +1,7 @@
+fetch_events.py
+pyproject.toml
+uppsalajazzclub_website.egg-info/PKG-INFO
+uppsalajazzclub_website.egg-info/SOURCES.txt
+uppsalajazzclub_website.egg-info/dependency_links.txt
+uppsalajazzclub_website.egg-info/requires.txt
+uppsalajazzclub_website.egg-info/top_level.txt

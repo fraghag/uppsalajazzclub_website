@@ -1,0 +1,8 @@
+[project]
+name = "uppsalajazzclub-website"
+version = "0.1.0"
+description = "Data fetcher for Uppsala Jazz Club"
+requires-python = ">=3.10"
+dependencies = [
+    "requests==2.31.0",
+]
