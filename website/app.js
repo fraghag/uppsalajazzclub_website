@@ -1,5 +1,46 @@
+async function loadComponent(url, elementId) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const html = await response.text();
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerHTML = html;
+            if (elementId === 'header-placeholder') {
+                setActiveNavLink();
+            }
+        }
+    } catch (error) {
+        console.error(`Error loading component ${url}:`, error);
+    }
+}
+
+function setActiveNavLink() {
+    const path = window.location.pathname;
+    let filename = path.split('/').pop();
+    if (!filename || filename === '') {
+        filename = 'index.html';
+    }
+    
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === filename) {
+            link.classList.add('text-primary-container', 'dark:text-primary-container', 'font-black', 'border-b-2', 'border-primary-container');
+            link.classList.remove('hover:text-primary-container', 'dark:hover:text-primary-container');
+        } else {
+            link.classList.remove('text-primary-container', 'dark:text-primary-container', 'font-black', 'border-b-2', 'border-primary-container');
+            link.classList.add('hover:text-primary-container', 'dark:hover:text-primary-container');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('components/header.html', 'header-placeholder');
+    loadComponent('components/footer.html', 'footer-placeholder');
+
     const eventsContainer = document.getElementById('events-container');
+    if (!eventsContainer) return;
     const EVENTS_URL = 'data/events.json';
 
     const images = [
@@ -45,11 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3 class="font-headline-md text-headline-lg-mobile md:text-headline-md text-on-background mb-2">${title}</h3>
                         <p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">${description}</p>
                     </div>
-                    <div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-surface-variant">
+                    <div class="flex items-center justify-end mt-auto pt-4 border-t-2 border-surface-variant">
                         <span class="font-label-bold text-label-bold text-on-surface">${timeStr}</span>
-                        <a href="${url}" target="_blank" rel="noopener noreferrer" class="bg-transparent border-4 border-surface-variant text-on-surface font-label-bold text-label-bold px-6 py-2 rounded-lg hover:border-primary-container hover:text-primary-container transition-all duration-300 inline-block text-center">
-                            Biljetter
-                        </a>
                     </div>
                 </div>
             </article>
@@ -71,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(EVENTS_URL);
             
             if (!response.ok) {
-                throw new Error(\`HTTP error! status: \${response.status}\`);
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
             
             const events = await response.json();

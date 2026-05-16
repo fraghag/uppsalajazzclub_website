@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="sv"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Uppsala Jazz Club - Kommande Konserter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="tailwind.config.js"></script>
+<style>
+        .texture-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        /* Hide scrollbar for cleaner look in carousels */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative selection:bg-primary-container/30 selection:text-primary-container">
+<!-- Global Texture Overlay -->
+<div class="fixed inset-0 texture-overlay z-[9999]"></div>
+<!-- TopNavBar -->
+<div id="header-placeholder"></div>
+<main class="flex-grow pt-24">
+<section class="px-margin-mobile md:px-margin-desktop py-[80px] max-w-3xl mx-auto text-center">
+<h1 class="font-headline-lg text-headline-lg text-primary-container mb-6">Kontakta oss</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+Har du frågor om programmet, medlemskap eller vill du uppträda hos oss?
+</p>
+<a href="mailto:info@uppsalajazzclub.se" class="text-primary-container font-headline-md text-headline-md hover:underline">info@uppsalajazzclub.se</a>
+</section>
+</main>
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+<script src="app.js"></script>
+</body></html>

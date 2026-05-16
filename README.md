@@ -28,3 +28,17 @@ To run the fetcher locally:
    ```bash
    uv run --project fetcher fetcher/fetch_events.py
    ```
+
+## Local Development
+
+To test the website locally, you must serve it through a local web server (opening the HTML files directly in your browser will prevent the shared header/footer components from loading due to browser security policies).
+
+1. Navigate to the `website/` directory:
+   ```bash
+   cd website
+   ```
+2. Start a local Python HTTP server:
+   ```bash
+   uv run python -m http.server
+   ```
+3. Open your browser and navigate to `http://localhost:8000`.

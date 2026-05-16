@@ -7,155 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "error-container": "#93000a",
-                "surface-dim": "#131313",
-                "surface-variant": "#353535",
-                "on-tertiary-fixed-variant": "#474746",
-                "tertiary-fixed": "#e5e2e1",
-                "secondary-fixed-dim": "#c6c6c7",
-                "on-primary": "#3a3000",
-                "on-secondary": "#2f3131",
-                "on-surface-variant": "#d0c6ab",
-                "surface-container-high": "#2a2a2a",
-                "primary-container": "#ffd700",
-                "outline": "#999077",
-                "on-primary-container": "#705e00",
-                "on-error": "#690005",
-                "inverse-surface": "#e2e2e2",
-                "secondary-container": "#454747",
-                "primary": "#fff6df",
-                "on-primary-fixed-variant": "#544600",
-                "inverse-primary": "#705d00",
-                "surface-container-highest": "#353535",
-                "on-secondary-container": "#b4b5b5",
-                "on-background": "#e2e2e2",
-                "tertiary-fixed-dim": "#c8c6c5",
-                "surface-container": "#1f1f1f",
-                "surface-tint": "#e9c400",
-                "on-tertiary-container": "#605f5e",
-                "on-error-container": "#ffdad6",
-                "secondary-fixed": "#e2e2e2",
-                "on-primary-fixed": "#221b00",
-                "outline-variant": "#4d4732",
-                "surface-container-low": "#1b1b1b",
-                "surface-container-lowest": "#0e0e0e",
-                "inverse-on-surface": "#303030",
-                "tertiary": "#f9f5f5",
-                "surface-bright": "#393939",
-                "on-secondary-fixed": "#1a1c1c",
-                "on-tertiary": "#313030",
-                "primary-fixed-dim": "#e9c400",
-                "on-secondary-fixed-variant": "#454747",
-                "secondary": "#c6c6c7",
-                "background": "#131313",
-                "error": "#ffb4ab",
-                "on-surface": "#e2e2e2",
-                "tertiary-container": "#dcd9d9",
-                "on-tertiary-fixed": "#1c1b1b",
-                "primary-fixed": "#ffe16d",
-                "surface": "#131313"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "max-width": "1280px",
-                "margin-desktop": "64px",
-                "unit": "8px",
-                "gutter-md": "24px",
-                "gutter-sm": "16px",
-                "margin-mobile": "20px"
-        },
-        "fontFamily": {
-                "body-lg": [
-                        "Inter"
-                ],
-                "headline-xl": [
-                        "Montserrat"
-                ],
-                "headline-md": [
-                        "Montserrat"
-                ],
-                "headline-lg-mobile": [
-                        "Montserrat"
-                ],
-                "body-md": [
-                        "Inter"
-                ],
-                "label-bold": [
-                        "Inter"
-                ],
-                "headline-lg": [
-                        "Montserrat"
-                ]
-        },
-        "fontSize": {
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "1.6",
-                                "fontWeight": "400"
-                        }
-                ],
-                "headline-xl": [
-                        "80px",
-                        {
-                                "lineHeight": "1.0",
-                                "letterSpacing": "-0.04em",
-                                "fontWeight": "900"
-                        }
-                ],
-                "headline-md": [
-                        "24px",
-                        {
-                                "lineHeight": "1.2",
-                                "fontWeight": "700"
-                        }
-                ],
-                "headline-lg-mobile": [
-                        "32px",
-                        {
-                                "lineHeight": "1.1",
-                                "fontWeight": "800"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "1.5",
-                                "fontWeight": "400"
-                        }
-                ],
-                "label-bold": [
-                        "14px",
-                        {
-                                "lineHeight": "1.2",
-                                "letterSpacing": "0.1em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "headline-lg": [
-                        "48px",
-                        {
-                                "lineHeight": "1.1",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "800"
-                        }
-                ]
-        }
-},
-    },
-  }
-</script>
+<script src="tailwind.config.js"></script>
 <style>
         .texture-overlay {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
@@ -175,30 +27,7 @@
 <!-- Global Texture Overlay -->
 <div class="fixed inset-0 texture-overlay z-[9999]"></div>
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-background dark:bg-background border-b-4 border-primary-container dark:border-primary-container">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-24 max-w-max-width mx-auto">
-<a class="hover:opacity-80 transition-opacity" href="#">
-<img alt="Uppsala Jazz Club Logo" class="h-12 w-auto" src="assets/logo-white.png"/>
-</a>
-<!-- Desktop Nav -->
-<ul class="hidden md:flex gap-8 items-center text-on-background dark:text-on-background font-bold uppercase">
-<li><a class="text-primary-container dark:text-primary-container font-black border-b-2 border-primary-container hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Live Concerts</a></li>
-<li><a class="hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Jam Sessions</a></li>
-<li><a class="hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Member Club</a></li>
-<li><a class="hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">History</a></li>
-<li><a class="hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="#">Contact</a></li>
-</ul>
-<div class="flex items-center gap-4">
-<button class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-6 py-3 rounded-lg border-4 border-primary-container hover:bg-transparent hover:text-primary-container transition-colors duration-300 active:scale-95">
-                    Tickets
-                </button>
-<!-- Mobile Menu Toggle (Decorative for this scope) -->
-<button class="md:hidden text-primary-container p-2">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
-</button>
-</div>
-</nav>
-</header>
+<div id="header-placeholder"></div>
 <main class="flex-grow pt-24">
 <!-- Hero Section -->
 <section class="relative min-h-[819px] flex items-center justify-center px-margin-mobile md:px-margin-desktop py-[80px] overflow-hidden border-b-4 border-primary-container">
@@ -234,21 +63,6 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t-4 border-primary-container dark:border-primary-container mt-[80px]">
-<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 gap-gutter-md max-w-max-width mx-auto">
-<div class="relative z-10 flex flex-col gap-6 items-center md:items-start">
-<img alt="Uppsala Jazz Club Logo" class="h-16 w-auto brightness-0 invert" src="assets/logo-white.png"/>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-sm text-center md:text-left">
-                    © 2026 Uppsala Jazz Club. Rhythms of the North.
-                </p>
-</div>
-<nav class="relative z-10 flex flex-col sm:flex-row gap-x-12 gap-y-4 font-label-bold text-label-bold text-on-surface-variant dark:text-on-surface-variant text-center">
-<a class="hover:text-primary dark:hover:text-primary transition-all focus:outline-none focus:ring-1 focus:ring-primary uppercase" href="#">Membership Terms</a>
-<a class="hover:text-primary dark:hover:text-primary transition-all focus:outline-none focus:ring-1 focus:ring-primary uppercase" href="#">Privacy Policy</a>
-<a class="hover:text-primary dark:hover:text-primary transition-all focus:outline-none focus:ring-1 focus:ring-primary uppercase" href="#">Venue Hire</a>
-<a class="hover:text-primary dark:hover:text-primary transition-all focus:outline-none focus:ring-1 focus:ring-primary uppercase" href="#">Press Kit</a>
-</nav>
-</div>
-</footer>
+<div id="footer-placeholder"></div>
 <script src="app.js"></script>
 </body></html>
