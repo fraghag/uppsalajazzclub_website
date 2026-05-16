@@ -1,5 +1,5 @@
 <header class="fixed top-0 w-full z-50 bg-background dark:bg-background border-b-4 border-primary-container dark:border-primary-container">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-24 max-w-max-width mx-auto">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-24 max-w-max-width mx-auto relative z-20 bg-background dark:bg-background">
 <a class="hover:opacity-80 transition-opacity" href="index.html">
 <img alt="Uppsala Jazz Club Logo" class="h-12 w-auto" src="assets/logo-white.png"/>
 </a>
@@ -11,10 +11,20 @@
 <li><a class="nav-link hover:text-primary-container dark:hover:text-primary-container transition-colors duration-200" href="kontakta-oss.html">Kontakta oss</a></li>
 </ul>
 <div class="flex items-center gap-4">
-<!-- Mobile Menu Toggle (Decorative for this scope) -->
-<button class="md:hidden text-primary-container p-2">
+<!-- Mobile Menu Toggle -->
+<button id="mobile-menu-btn" class="md:hidden text-primary-container p-2">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
 </button>
 </div>
 </nav>
+
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobile-menu" class="hidden md:hidden bg-background dark:bg-background border-b-4 border-primary-container absolute w-full left-0 top-24 shadow-xl z-10 transition-all duration-300">
+<ul class="flex flex-col text-center text-on-background dark:text-on-background font-bold uppercase py-4">
+<li><a class="nav-link block py-4 hover:bg-surface-container-high transition-colors duration-200" href="evenemang.html">Evenemang</a></li>
+<li><a class="nav-link block py-4 hover:bg-surface-container-high transition-colors duration-200" href="bli-medlem.html">Bli medlem</a></li>
+<li><a class="nav-link block py-4 hover:bg-surface-container-high transition-colors duration-200" href="om-oss.html">Om oss</a></li>
+<li><a class="nav-link block py-4 hover:bg-surface-container-high transition-colors duration-200" href="kontakta-oss.html">Kontakta oss</a></li>
+</ul>
+</div>
 </header>

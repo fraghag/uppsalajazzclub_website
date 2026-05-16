@@ -8,6 +8,13 @@ async function loadComponent(url, elementId) {
             element.innerHTML = html;
             if (elementId === 'header-placeholder') {
                 setActiveNavLink();
+                const menuBtn = document.getElementById('mobile-menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (menuBtn && mobileMenu) {
+                    menuBtn.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
             }
         }
     } catch (error) {
