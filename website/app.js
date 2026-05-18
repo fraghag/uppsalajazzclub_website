@@ -59,7 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function formatShortDate(dateString) {
         if (!dateString) return '';
         const date = new Date(dateString);
-        return new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'short' }).format(date).toUpperCase();
+        const currentYear = new Date().getFullYear();
+        const eventYear = date.getFullYear();
+        
+        const options = { day: 'numeric', month: 'short' };
+        if (eventYear !== currentYear) {
+            options.year = 'numeric';
+        }
+        
+        return new Intl.DateTimeFormat('sv-SE', options).format(date).toUpperCase();
     }
 
     function formatTime(dateString) {
@@ -121,6 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             let events = await response.json();
             eventsContainer.innerHTML = '';
+            
+            const pastEventsContainer = document.getElementById('past-events-container');
+            const pastEventsSection = document.getElementById('past-events-section');
+            if (pastEventsContainer) pastEventsContainer.innerHTML = '';
 
             if (!Array.isArray(events) || events.length === 0) {
                 renderFallback();
@@ -135,15 +147,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 .filter(event => new Date(event.start_time) >= sixHoursAgo)
                 .sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
 
+            const pastEvents = events
+                .filter(event => new Date(event.start_time) < sixHoursAgo)
+                .sort((a, b) => new Date(b.start_time) - new Date(a.start_time));
+
+            // Render Upcoming Events
             if (upcomingEvents.length === 0) {
                 renderFallback();
-                return;
+            } else {
+                upcomingEvents.forEach((event, index) => {
+                    const card = createEventCard(event, index);
+                    eventsContainer.appendChild(card);
+                });
             }
 
-            upcomingEvents.forEach((event, index) => {
-                const card = createEventCard(event, index);
-                eventsContainer.appendChild(card);
-            });
+            // Render Past Events
+            if (pastEventsContainer && pastEvents.length > 0) {
+                pastEventsSection.classList.remove('hidden');
+                
+                const ITEMS_PER_PAGE = 9;
+                let displayedCount = 0;
+                const loadMoreBtn = document.getElementById('load-more-btn');
+                const loadMoreContainer = document.getElementById('load-more-container');
+
+                function renderNextPastEvents() {
+                    const nextBatch = pastEvents.slice(displayedCount, displayedCount + ITEMS_PER_PAGE);
+                    nextBatch.forEach((event, index) => {
+                        const card = createEventCard(event, displayedCount + index + 10);
+                        pastEventsContainer.appendChild(card);
+                    });
+                    
+                    displayedCount += nextBatch.length;
+                    
+                    if (displayedCount >= pastEvents.length) {
+                        if (loadMoreContainer) loadMoreContainer.classList.add('hidden');
+                    } else {
+                        if (loadMoreContainer) loadMoreContainer.classList.remove('hidden');
+                    }
+                }
+
+                // Initial render
+                renderNextPastEvents();
+
+                if (loadMoreBtn) {
+                    // Remove any existing listeners by cloning
+                    const newBtn = loadMoreBtn.cloneNode(true);
+                    loadMoreBtn.parentNode.replaceChild(newBtn, loadMoreBtn);
+                    newBtn.addEventListener('click', renderNextPastEvents);
+                }
+            }
 
         } catch (error) {
             console.error('Error fetching events:', error);
