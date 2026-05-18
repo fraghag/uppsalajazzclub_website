@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
-            const events = await response.json();
+            let events = await response.json();
             eventsContainer.innerHTML = '';
 
             if (!Array.isArray(events) || events.length === 0) {
@@ -127,7 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            events.forEach((event, index) => {
+            // Filter for upcoming events (start_time >= now - 6 hours to account for ongoing events)
+            const now = new Date();
+            const sixHoursAgo = new Date(now.getTime() - (6 * 60 * 60 * 1000));
+            
+            const upcomingEvents = events
+                .filter(event => new Date(event.start_time) >= sixHoursAgo)
+                .sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
+
+            if (upcomingEvents.length === 0) {
+                renderFallback();
+                return;
+            }
+
+            upcomingEvents.forEach((event, index) => {
                 const card = createEventCard(event, index);
                 eventsContainer.appendChild(card);
             });

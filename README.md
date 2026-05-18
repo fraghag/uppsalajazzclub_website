@@ -24,9 +24,13 @@ To run the fetcher locally:
 3. Set the required environment variables:
    * `FB_PAGE_ACCESS_TOKEN`
    * `FB_PAGE_ID`
-4. Run the script from the root directory so the `data/` folder is updated properly:
+4. Run the script from the root directory so the website data is updated properly:
    ```bash
-   uv run --project fetcher fetcher/fetch_events.py
+   # Default: fetch upcoming events
+   uv run --env-file .env --project fetcher fetcher/fetch_events.py
+   
+   # Optional: fetch historical events since a date (merges into existing data)
+   uv run --env-file .env --project fetcher fetcher/fetch_events.py --since 2024-01-01
    ```
 
 ## Local Development

@@ -5,4 +5,5 @@ description = "Data fetcher for Uppsala Jazz Club"
 requires-python = ">=3.10"
 dependencies = [
     "requests==2.31.0",
+    "typer>=0.9.0",
 ]
