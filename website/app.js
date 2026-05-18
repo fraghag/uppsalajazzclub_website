@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgUrl = event.image || images[index % images.length];
 
         const template = `
-            <article class="group bg-surface rounded-lg overflow-hidden border-4 border-surface-variant relative flex flex-col hover:border-primary-container transition-colors duration-300 h-full">
+            <article class="group bg-surface rounded-lg overflow-hidden border-4 border-surface-variant relative flex flex-col hover:border-primary-container transition-colors duration-300 h-full cursor-pointer">
                 <div class="h-64 overflow-hidden relative shrink-0">
                     <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent z-10"></div>
                     <img alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="${imgUrl}"/>
@@ -109,11 +109,93 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         
         const wrapper = document.createElement('div');
-        // If it's the third card on a large screen, make it span in the grid if we wanted (like the template did),
-        // but it's simpler to just let it fill normally.
         wrapper.innerHTML = template.trim();
-        return wrapper.firstChild;
+        const card = wrapper.firstChild;
+
+        card.addEventListener('click', () => openModal(event, imgUrl, dateStr, timeStr));
+
+        return card;
     }
+
+    // Modal Logic
+    const modal = document.getElementById('event-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalLocation = document.getElementById('modal-location');
+    const modalDate = document.getElementById('modal-date');
+    const modalTime = document.getElementById('modal-time');
+    const modalDescription = document.getElementById('modal-description');
+    const modalFbLink = document.getElementById('modal-fb-link');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+
+    const modalContentWrapper = document.getElementById('modal-content-wrapper');
+    const modalImageOverlay = document.getElementById('modal-image-overlay');
+
+    function handleModalScroll() {
+        if (!modalContentWrapper || !modalImage) return;
+        
+        const scrollTop = modalContentWrapper.scrollTop;
+        const fadeHeight = 300; // Height over which to fade out
+        
+        // Calculate opacity and scale
+        const opacity = Math.max(0, 1 - scrollTop / fadeHeight);
+        const scale = 1 + (scrollTop / 1000); // Subtle zoom in
+        
+        modalImage.style.opacity = opacity;
+        modalImage.style.transform = `scale(${scale})`;
+        
+        if (modalImageOverlay) {
+            modalImageOverlay.style.opacity = Math.max(0.4, 0.6 + (scrollTop / 500));
+        }
+    }
+
+    if (modalContentWrapper) {
+        modalContentWrapper.addEventListener('scroll', handleModalScroll);
+    }
+
+    function openModal(event, imgUrl, dateStr, timeStr) {
+        if (!modal) return;
+        
+        modalImage.src = imgUrl;
+        
+        modalTitle.textContent = event.name || 'Jazzkonsert';
+        modalLocation.textContent = event.place ? event.place.name || event.place : 'Uppsala';
+        modalDate.textContent = dateStr;
+        modalTime.textContent = timeStr;
+        modalDescription.textContent = event.description || '';
+        modalFbLink.href = event.url || '#';
+        
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        
+        // Reset scroll and image effects
+        if (modalContentWrapper) {
+            modalContentWrapper.scrollTop = 0;
+            // Force a scroll event to trigger handleModalScroll and reset image state
+            handleModalScroll();
+            
+            // Second pass after a frame to be absolutely sure (browsers can be finicky with hidden overflow)
+            requestAnimationFrame(() => {
+                modalContentWrapper.scrollTop = 0;
+                handleModalScroll();
+            });
+        }
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
 
     function renderFallback(message = "Just nu vilar vi instrumenten. Håll utkik här för kommande spelningar!") {
         eventsContainer.innerHTML = `<div class="col-span-full text-center py-12 px-6 bg-surface-container-low rounded-lg border-2 border-surface-variant text-on-surface-variant">${message}</div>`;
