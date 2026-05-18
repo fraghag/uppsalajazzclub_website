@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const location = event.place ? event.place.name || event.place : 'Uppsala';
         const description = event.description || 'Välkommen till en fantastisk jazzkväll.';
         const url = event.url || '#';
-        const imgUrl = images[index % images.length];
+        const imgUrl = event.image || images[index % images.length];
 
         const template = `
             <article class="group bg-surface rounded-lg overflow-hidden border-4 border-surface-variant relative flex flex-col hover:border-primary-container transition-colors duration-300 h-full">
