@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="sv"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Uppsala Jazz Club - Kommande Konserter</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="tailwind.config.js"></script>
-<style>
+<html class="dark" lang="sv">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Om Oss | Uppsala Jazz Club</title>
+    <meta content="Läs mer om Uppsala Jazz Club. Upptäck vår rika historia som sträcker sig över flera decennier, våra värderingar och styrelsen som driver klubben." name="description"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="tailwind.config.js"></script>
+    <style>
         .texture-overlay {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
         }
-        /* Hide scrollbar for cleaner look in carousels */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .glass-card {
+            background: rgba(31, 31, 31, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -28,18 +26,182 @@
 <div class="fixed inset-0 texture-overlay z-[9999]"></div>
 <!-- TopNavBar -->
 <div id="header-placeholder"></div>
+
 <main class="flex-grow pt-24">
-<section class="px-margin-mobile md:px-margin-desktop py-[80px] max-w-3xl mx-auto">
-<h1 class="font-headline-lg text-headline-lg text-primary-container mb-6">Om oss</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-Uppsala Jazz Club är en av Sveriges mest anrika jazzklubbar. Vi har sedan starten presenterat jazz i världsklass för uppsalaborna.
-</p>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-Vårt mål är att erbjuda en scen för både etablerade internationella stjärnor och lokala, lovande talanger.
-</p>
-</section>
+    <!-- Header Section -->
+    <section class="px-margin-mobile md:px-margin-desktop pt-16 pb-8 max-w-max-width mx-auto text-center">
+        <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-4">Om Uppsala Jazz Club</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Vi är en av Sveriges mest anrika jazzklubbar. Sedan grundandet har vi verkat för att sprida livejazz av högsta kvalitet till Uppsalas invånare.
+        </p>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="px-margin-mobile md:px-margin-desktop py-8 max-w-max-width mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 text-center hover:border-primary-container/50 transition-colors">
+                <span class="material-symbols-outlined text-4xl text-primary-container mb-3">music_note</span>
+                <h3 class="font-bold text-on-background mb-2 text-lg">Kvalitet & Variation</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Vi presenterar allt från traditionell jazz och swing till experimentell modern improvisation och fusion.</p>
+            </div>
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 text-center hover:border-primary-container/50 transition-colors">
+                <span class="material-symbols-outlined text-4xl text-primary-container mb-3">groups</span>
+                <h3 class="font-bold text-on-background mb-2 text-lg">Gemenskap</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Våra konsertkvällar och jamsessions erbjuder en välkomnande och intim mötesplats för musiker och publik.</p>
+            </div>
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 text-center hover:border-primary-container/50 transition-colors">
+                <span class="material-symbols-outlined text-4xl text-primary-container mb-3">stars</span>
+                <h3 class="font-bold text-on-background mb-2 text-lg">Framtidens Scen</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Vi ger utrymme åt unga, lokala musiker och samarbetar med musikutbildningar för att hålla jazzen levande.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline Section -->
+    <section class="px-margin-mobile md:px-margin-desktop py-16 max-w-3xl mx-auto">
+        <h2 class="font-headline-md text-headline-md text-primary-container text-center mb-12">Vår Resa</h2>
+        
+        <div class="relative border-l-4 border-surface-variant ml-4 md:ml-32 py-2 flex flex-col gap-12">
+            
+            <!-- Timeline Item 1 -->
+            <div class="relative pl-8 md:pl-10">
+                <!-- Bullet point -->
+                <div class="absolute -left-[14px] top-1 bg-background border-4 border-primary-container w-6 h-6 rounded-full z-10"></div>
+                <!-- Year indicator on the left for medium screens -->
+                <div class="hidden md:block absolute -left-32 top-0 w-24 text-right">
+                    <span class="font-headline-md text-headline-md text-primary-container font-black">1975</span>
+                </div>
+                <!-- Content -->
+                <div class="glass-card border-2 border-surface-variant rounded-xl p-6">
+                    <span class="md:hidden inline-block bg-primary-container text-on-primary-container text-xs font-label-bold px-2 py-0.5 rounded mb-2">1975</span>
+                    <h3 class="font-bold text-on-background text-lg mb-2">Klubben Grundas</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Uppsala Jazz Club bildas som en ideell förening av en engagerad skara musiker och lyssnare. De första konsertkvällarna blir startskottet för en stolt och obruten tradition av livejazz i Uppsala.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="relative pl-8 md:pl-10">
+                <div class="absolute -left-[14px] top-1 bg-background border-4 border-primary-container w-6 h-6 rounded-full z-10"></div>
+                <div class="hidden md:block absolute -left-32 top-0 w-24 text-right">
+                    <span class="font-headline-md text-headline-md text-primary-container font-black">1985</span>
+                </div>
+                <div class="glass-card border-2 border-surface-variant rounded-xl p-6">
+                    <span class="md:hidden inline-block bg-primary-container text-on-primary-container text-xs font-label-bold px-2 py-0.5 rounded mb-2">1985</span>
+                    <h3 class="font-bold text-on-background text-lg mb-2">En Kulturell Institution</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Klubben etablerar sig som en officiell och respekterad förening. Med regelbundna säsongsprogram och gästspel av stora nationella artister blir klubben en stöttepelare i stadens kulturliv.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="relative pl-8 md:pl-10">
+                <div class="absolute -left-[14px] top-1 bg-background border-4 border-primary-container w-6 h-6 rounded-full z-10"></div>
+                <div class="hidden md:block absolute -left-32 top-0 w-24 text-right">
+                    <span class="font-headline-md text-headline-md text-primary-container font-black">2007</span>
+                </div>
+                <div class="glass-card border-2 border-surface-variant rounded-xl p-6">
+                    <span class="md:hidden inline-block bg-primary-container text-on-primary-container text-xs font-label-bold px-2 py-0.5 rounded mb-2">2007</span>
+                    <h3 class="font-bold text-on-background text-lg mb-2">Inflyttning i UKK</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Uppsala Konsert & Kongress slår upp sina portar och Uppsala Jazz Club flyttar sin huvudsakliga konsertscen till den nya byggnaden. Konceptet "Jazzhörnan" lanseras i samarbete med UKK och blir snabbt en stor succé.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="relative pl-8 md:pl-10">
+                <div class="absolute -left-[14px] top-1 bg-background border-4 border-primary-container w-6 h-6 rounded-full z-10"></div>
+                <div class="hidden md:block absolute -left-32 top-0 w-24 text-right">
+                    <span class="font-headline-md text-headline-md text-primary-container font-black">Idag</span>
+                </div>
+                <div class="glass-card border-2 border-surface-variant rounded-xl p-6">
+                    <span class="md:hidden inline-block bg-primary-container text-on-primary-container text-xs font-label-bold px-2 py-0.5 rounded mb-2">Idag</span>
+                    <h3 class="font-bold text-on-background text-lg mb-2">Levande Jazzhistoria</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                        Med över 50 aktiva år i ryggen fortsätter vi att arrangera konserter med internationella jazzgiganter, lokala förmågor och erbjuda en livfull scen för jamsessions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Board/Team Section -->
+    <section class="px-margin-mobile md:px-margin-desktop py-16 max-w-max-width mx-auto border-t-4 border-surface-variant">
+        <h2 class="font-headline-md text-headline-md text-primary-container text-center mb-12">Föreningens Styrelse</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            
+            <!-- Member 1 -->
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl overflow-hidden hover:border-primary-container transition-colors duration-300 flex flex-col items-center p-6 text-center">
+                <!-- Stylized Avatar with warm HSL gradient and jazz note SVG -->
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-surface-variant to-primary-container/40 flex items-center justify-center mb-4 border-2 border-primary-container shadow-inner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z" fill="#ffd700"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-on-background text-base">Saga Hävermark</h3>
+                <p class="text-xs text-primary-container uppercase font-label-bold tracking-wider mb-3">Ordförande</p>
+                <a href="mailto:uppsalajazzclub@gmail.com" class="text-xs text-on-surface-variant hover:text-primary-container hover:underline break-all">uppsalajazzclub@gmail.com</a>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl overflow-hidden hover:border-primary-container transition-colors duration-300 flex flex-col items-center p-6 text-center">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-surface-variant to-primary-container/40 flex items-center justify-center mb-4 border-2 border-primary-container shadow-inner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z" fill="#ffd700"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-on-background text-base">Emil Ingmar</h3>
+                <p class="text-xs text-primary-container uppercase font-label-bold tracking-wider mb-3">Styrelsemedlem</p>
+                <a href="mailto:uppsalajazzclub@gmail.com" class="text-xs text-on-surface-variant hover:text-primary-container hover:underline break-all">uppsalajazzclub@gmail.com</a>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl overflow-hidden hover:border-primary-container transition-colors duration-300 flex flex-col items-center p-6 text-center">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-surface-variant to-primary-container/40 flex items-center justify-center mb-4 border-2 border-primary-container shadow-inner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z" fill="#ffd700"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-on-background text-base">Ragnar Hägg</h3>
+                <p class="text-xs text-primary-container uppercase font-label-bold tracking-wider mb-3">Styrelsemedlem</p>
+                <a href="mailto:uppsalajazzclub@gmail.com" class="text-xs text-on-surface-variant hover:text-primary-container hover:underline break-all">uppsalajazzclub@gmail.com</a>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl overflow-hidden hover:border-primary-container transition-colors duration-300 flex flex-col items-center p-6 text-center">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-surface-variant to-primary-container/40 flex items-center justify-center mb-4 border-2 border-primary-container shadow-inner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z" fill="#ffd700"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-on-background text-base">Tomas Tidman</h3>
+                <p class="text-xs text-primary-container uppercase font-label-bold tracking-wider mb-3">Styrelsemedlem</p>
+                <a href="mailto:uppsalajazzclub@gmail.com" class="text-xs text-on-surface-variant hover:text-primary-container hover:underline break-all">uppsalajazzclub@gmail.com</a>
+            </div>
+
+            <!-- Member 5 -->
+            <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl overflow-hidden hover:border-primary-container transition-colors duration-300 flex flex-col items-center p-6 text-center">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-surface-variant to-primary-container/40 flex items-center justify-center mb-4 border-2 border-primary-container shadow-inner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V13.55C11.41 13.21 10.73 13 10 13C7.79 13 6 14.79 6 17C6 19.21 7.79 21 10 21C12.21 21 14 19.21 14 17V7H18V3H12Z" fill="#ffd700"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-on-background text-base">Minna Paavola</h3>
+                <p class="text-xs text-primary-container uppercase font-label-bold tracking-wider mb-3">Styrelsemedlem</p>
+                <a href="mailto:uppsalajazzclub@gmail.com" class="text-xs text-on-surface-variant hover:text-primary-container hover:underline break-all">uppsalajazzclub@gmail.com</a>
+            </div>
+
+        </div>
+    </section>
 </main>
+
 <!-- Footer -->
 <div id="footer-placeholder"></div>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>

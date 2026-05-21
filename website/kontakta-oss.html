@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="sv"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Uppsala Jazz Club - Kommande Konserter</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="tailwind.config.js"></script>
-<style>
+<html class="dark" lang="sv">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Kontakta Oss | Uppsala Jazz Club</title>
+    <meta content="Kontakta Uppsala Jazz Club. Skicka ett meddelande, gör en bokningsförfrågan eller hitta vägbeskrivningar till vår scen på Uppsala Konsert & Kongress." name="description"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="tailwind.config.js"></script>
+    <style>
         .texture-overlay {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
         }
-        /* Hide scrollbar for cleaner look in carousels */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .glass-card {
+            background: rgba(31, 31, 31, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -28,16 +26,189 @@
 <div class="fixed inset-0 texture-overlay z-[9999]"></div>
 <!-- TopNavBar -->
 <div id="header-placeholder"></div>
+
 <main class="flex-grow pt-24">
-<section class="px-margin-mobile md:px-margin-desktop py-[80px] max-w-3xl mx-auto text-center">
-<h1 class="font-headline-lg text-headline-lg text-primary-container mb-6">Kontakta oss</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-Har du frågor om programmet, medlemskap eller vill du uppträda hos oss?
-</p>
-<a href="mailto:info@uppsalajazzclub.se" class="text-primary-container font-headline-md text-headline-md hover:underline">info@uppsalajazzclub.se</a>
-</section>
+    <!-- Header Section -->
+    <section class="px-margin-mobile md:px-margin-desktop pt-16 pb-8 max-w-max-width mx-auto text-center">
+        <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-4">Kontakta Oss</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Har du frågor om vårt program, vill ansöka om medlemskap eller är du musiker som vill spela hos oss? Tveka inte att höra av dig.
+        </p>
+    </section>
+
+    <!-- Content Grid Section -->
+    <section class="px-margin-mobile md:px-margin-desktop py-8 max-w-max-width mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            
+            <!-- Left Side: Interactive Contact Form -->
+            <div class="glass-card border-4 border-surface-variant rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-between">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary-container mb-6">Skicka ett Meddelande</h2>
+                    <form id="contact-form" class="flex flex-col gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label for="name" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">Namn</label>
+                            <input type="text" id="name" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors" placeholder="Ditt namn">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="email" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">E-postadress</label>
+                            <input type="email" id="email" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors" placeholder="namn@exempel.se">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="subject" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">Ärende</label>
+                            <select id="subject" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors">
+                                <option value="general" selected>Allmän förfrågan</option>
+                                <option value="booking">Bokning (spela hos oss)</option>
+                                <option value="membership">Frågor om medlemskap</option>
+                                <option value="press">Press & Media</option>
+                            </select>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="message" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">Meddelande</label>
+                            <textarea id="message" required rows="5" class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors resize-none" placeholder="Skriv ditt meddelande här..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary-container hover:brightness-110 text-on-primary-container font-label-bold py-4 rounded-lg border-2 border-primary-container transition-all duration-300 flex items-center justify-center gap-2 text-base shadow-md shadow-primary-container/10">
+                            <span>Skicka Meddelande</span>
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </form>
+
+                    <!-- Success State -->
+                    <div id="contact-success" class="hidden text-center py-16 flex flex-col items-center gap-4">
+                        <span class="material-symbols-outlined text-6xl text-primary-container animate-pulse">check_circle</span>
+                        <h3 class="font-headline-md text-headline-md text-primary-container">Meddelandet skickat!</h3>
+                        <p class="text-on-surface-variant max-w-sm">
+                            Tack för att du hörde av dig. Vi har tagit emot ditt meddelande och återkommer till dig så snart som möjligt.
+                        </p>
+                        <button onclick="resetContactForm()" class="mt-6 border-2 border-surface-variant hover:border-primary-container text-on-surface-variant hover:text-primary-container px-6 py-2 rounded-lg text-sm transition-colors">
+                            Skicka nytt meddelande
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Info & Custom SVG Map -->
+            <div class="flex flex-col gap-8 justify-between">
+                
+                <!-- Contact info cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 hover:border-primary-container/50 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-primary-container">mail</span>
+                            <h4 class="font-bold text-on-background">E-post</h4>
+                        </div>
+                        <a href="mailto:uppsalajazzclub@gmail.com" class="text-sm text-on-surface-variant hover:text-primary-container hover:underline break-all">uppsalajazzclub@gmail.com</a>
+                    </div>
+
+                    <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 hover:border-primary-container/50 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-primary-container">share</span>
+                            <h4 class="font-bold text-on-background">Sociala Medier</h4>
+                        </div>
+                        <div class="flex gap-4 text-sm text-on-surface-variant">
+                            <a href="https://www.instagram.com/uppsalajazzclub/" target="_blank" rel="noopener noreferrer" class="hover:text-primary-container hover:underline flex items-center gap-1">Instagram</a>
+                            <a href="https://www.facebook.com/uppsalajazzclub" target="_blank" rel="noopener noreferrer" class="hover:text-primary-container hover:underline flex items-center gap-1">Facebook</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 hover:border-primary-container/50 transition-colors sm:col-span-2">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-primary-container">location_on</span>
+                            <h4 class="font-bold text-on-background">Vår Scen</h4>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">Uppsala Konsert & Kongress, Vaksala torg 1, Uppsala</p>
+                    </div>
+                </div>
+
+                <!-- Custom Stylized SVG Map -->
+                <div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-6 flex flex-col flex-grow min-h-[300px] overflow-hidden justify-between">
+                    <div>
+                        <h3 class="font-bold text-on-background mb-1">Hitta Till Oss</h3>
+                        <p class="text-xs text-on-surface-variant mb-4">Konserter arrangeras oftast på Jazzhörnan inne i Uppsala Konsert & Kongress (UKK), precis vid Vaksala Torg.</p>
+                    </div>
+                    
+                    <div class="relative w-full h-[220px] rounded-lg overflow-hidden border border-surface-variant bg-[#161616] flex items-center justify-center">
+                        <!-- Stylized SVG Map of Uppsala Central / Vaksala Torg area -->
+                        <svg class="w-full h-full" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Grid Lines -->
+                            <defs>
+                                <pattern id="mapGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#252525" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#mapGrid)" />
+
+                            <!-- Roads / Streets -->
+                            <!-- Vaksalagatan -->
+                            <line x1="0" y1="90" x2="400" y2="90" stroke="#353535" stroke-width="18" stroke-linecap="round" />
+                            <text x="15" y="82" fill="#555" font-family="Inter" font-size="8" font-weight="bold">VAKSALAGATAN</text>
+                            
+                            <!-- Storgatan -->
+                            <line x1="120" y1="0" x2="120" y2="220" stroke="#353535" stroke-width="14" />
+                            <text x="126" y="20" fill="#555" font-family="Inter" font-size="8" font-weight="bold" transform="rotate(90 126 20)">STORGATAN</text>
+
+                            <!-- Hjalmar Brantingsgatan -->
+                            <line x1="280" y1="0" x2="280" y2="220" stroke="#353535" stroke-width="14" />
+                            <text x="286" y="20" fill="#555" font-family="Inter" font-size="8" font-weight="bold" transform="rotate(90 286 20)">KUNGAGATAN</text>
+
+                            <!-- Vaksala Torg (Square) -->
+                            <rect x="150" y="115" width="90" height="70" rx="4" fill="#202020" stroke="#3d3d3d" stroke-width="2" />
+                            <text x="195" y="155" fill="#666" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle">VAKSALA TORG</text>
+
+                            <!-- Uppsala Konsert & Kongress (UKK) Building Shape -->
+                            <polygon points="215,95 270,95 270,140 245,140 245,115 215,115" fill="#303030" stroke="#ffd700" stroke-width="2" />
+                            <text x="245" y="110" fill="#ffd700" font-family="Montserrat" font-size="9" font-weight="bold" text-anchor="middle">UKK</text>
+                            
+                            <!-- Target Pin (Gold Ring and Dot) -->
+                            <circle cx="242" cy="118" r="8" fill="rgba(255, 215, 0, 0.2)" class="animate-ping" />
+                            <circle cx="242" cy="118" r="5" fill="#ffd700" />
+                            <circle cx="242" cy="118" r="2" fill="#131313" />
+
+                            <!-- Compass / North indicator -->
+                            <g transform="translate(360, 30)">
+                                <circle cx="0" cy="0" r="14" fill="#1f1f1f" stroke="#3d3d3d" stroke-width="1"/>
+                                <line x1="0" y1="8" x2="0" y2="-8" stroke="#ffd700" stroke-width="1.5" />
+                                <polygon points="0,-10 -3,-4 3,-4" fill="#ffd700" />
+                                <text x="0" y="-12" fill="#999" font-family="Inter" font-size="8" text-anchor="middle" font-weight="bold">N</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 </main>
+
 <!-- Footer -->
 <div id="footer-placeholder"></div>
 <script src="app.js"></script>
-</body></html>
+
+<script>
+    const form = document.getElementById('contact-form');
+    const successDiv = document.getElementById('contact-success');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Hide form, show success
+        form.classList.add('transition-all', 'duration-300', 'opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+            form.classList.add('hidden');
+            successDiv.classList.remove('hidden');
+            successDiv.classList.add('animate-fade-in');
+        }, 300);
+    });
+
+    function resetContactForm() {
+        form.reset();
+        successDiv.classList.add('hidden');
+        form.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+    }
+</script>
+</body>
+</html>
