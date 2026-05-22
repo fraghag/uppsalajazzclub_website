@@ -28,7 +28,7 @@ function setActiveNavLink() {
     if (!filename || filename === '') {
         filename = 'index.html';
     }
-    
+
     const links = document.querySelectorAll('.nav-link');
     links.forEach(link => {
         const href = link.getAttribute('href');
@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const date = new Date(dateString);
         const currentYear = new Date().getFullYear();
         const eventYear = date.getFullYear();
-        
+
         const options = { day: 'numeric', month: 'short' };
         if (eventYear !== currentYear) {
             options.year = 'numeric';
         }
-        
+
         return new Intl.DateTimeFormat('sv-SE', options).format(date).toUpperCase();
     }
 
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createEventCard(event, index) {
         const dateStr = formatShortDate(event.start_time);
         const timeStr = formatTime(event.start_time);
-        
+
         const title = event.name || 'Jazzkonsert';
         const location = event.place ? event.place.name || event.place : 'Uppsala';
         const description = event.description || 'Välkommen till en fantastisk jazzkväll.';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </article>
         `;
-        
+
         const wrapper = document.createElement('div');
         wrapper.innerHTML = template.trim();
         const card = wrapper.firstChild;
@@ -134,17 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleModalScroll() {
         if (!modalContentWrapper || !modalImage) return;
-        
+
         const scrollTop = modalContentWrapper.scrollTop;
         const fadeHeight = 300; // Height over which to fade out
-        
+
         // Calculate opacity and scale
         const opacity = Math.max(0, 1 - scrollTop / fadeHeight);
         const scale = 1 + (scrollTop / 1000); // Subtle zoom in
-        
+
         modalImage.style.opacity = opacity;
         modalImage.style.transform = `scale(${scale})`;
-        
+
         if (modalImageOverlay) {
             modalImageOverlay.style.opacity = Math.max(0.4, 0.6 + (scrollTop / 500));
         }
@@ -156,25 +156,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openModal(event, imgUrl, dateStr, timeStr) {
         if (!modal) return;
-        
+
         modalImage.src = imgUrl;
-        
+
         modalTitle.textContent = event.name || 'Jazzkonsert';
         modalLocation.textContent = event.place ? event.place.name || event.place : 'Uppsala';
         modalDate.textContent = dateStr;
         modalTime.textContent = timeStr;
         modalDescription.textContent = event.description || '';
         modalFbLink.href = event.url || '#';
-        
+
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
-        
+
         // Reset scroll and image effects
         if (modalContentWrapper) {
             modalContentWrapper.scrollTop = 0;
             // Force a scroll event to trigger handleModalScroll and reset image state
             handleModalScroll();
-            
+
             // Second pass after a frame to be absolutely sure (browsers can be finicky with hidden overflow)
             requestAnimationFrame(() => {
                 modalContentWrapper.scrollTop = 0;
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
-    
+
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
@@ -226,14 +226,14 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchEvents() {
         try {
             const response = await fetch(EVENTS_URL);
-            
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            
+
             let events = await response.json();
             eventsContainer.innerHTML = '';
-            
+
             const pastEventsContainer = document.getElementById('past-events-container');
             const pastEventsSection = document.getElementById('past-events-section');
             if (pastEventsContainer) pastEventsContainer.innerHTML = '';
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Filter for upcoming events (start_time >= now - 6 hours to account for ongoing events)
             const now = new Date();
             const sixHoursAgo = new Date(now.getTime() - (6 * 60 * 60 * 1000));
-            
+
             const upcomingEvents = events
                 .filter(event => new Date(event.start_time) >= sixHoursAgo)
                 .sort((a, b) => new Date(a.start_time) - new Date(b.start_time));
@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Render Upcoming Events
             if (upcomingEvents.length === 0) {
-                renderFallback("Just nu har vi inga kommande konserter inplanerade. Håll utkik på våra sociala medier för framtida evenemang!");
-                
+                renderFallback("Just nu har vi inga kommande konserter publicerade. Håll utkik på våra sociala medier för framtida evenemang!");
+
                 // If on homepage and upcoming is empty, show the 3 most recent past events
                 const isHomepage = !document.getElementById('past-events-container');
                 if (isHomepage && pastEvents.length > 0) {
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     `;
                     eventsContainer.closest('section').after(section);
-                    
+
                     const recentContainer = document.getElementById('recent-past-events');
                     pastEvents.slice(0, 3).forEach((event, index) => {
                         const card = createEventCard(event, index + 10);
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Render Past Events
             if (pastEventsContainer && pastEvents.length > 0) {
                 pastEventsSection.classList.remove('hidden');
-                
+
                 const ITEMS_PER_PAGE = 9;
                 let displayedCount = 0;
                 const loadMoreBtn = document.getElementById('load-more-btn');
@@ -304,9 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         const card = createEventCard(event, displayedCount + index + 10);
                         pastEventsContainer.appendChild(card);
                     });
-                    
+
                     displayedCount += nextBatch.length;
-                    
+
                     if (displayedCount >= pastEvents.length) {
                         if (loadMoreContainer) loadMoreContainer.classList.add('hidden');
                     } else {
