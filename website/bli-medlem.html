@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html class="dark" lang="sv">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Bli Medlem | Uppsala Jazz Club</title>
-    <meta content="Stöd livejazzen i Uppsala. Bli medlem i Uppsala Jazz Club för rabatterat pris på konserter, nyhetsbrev och rösträtt vid årsmötet." name="description"/>
+    <meta
+        content="Stöd livejazzen i Uppsala. Bli medlem i Uppsala Jazz Club för rabatterat pris på konserter, nyhetsbrev och rösträtt vid årsmötet."
+        name="description" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script src="tailwind.config.js"></script>
     <style>
         .texture-overlay {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
         }
+
         .glass-card {
             background: rgba(31, 31, 31, 0.6);
             backdrop-filter: blur(10px);
@@ -21,200 +29,120 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative selection:bg-primary-container/30 selection:text-primary-container">
-<!-- Global Texture Overlay -->
-<div class="fixed inset-0 texture-overlay z-[9999]"></div>
-<!-- TopNavBar -->
-<div id="header-placeholder"></div>
 
-<main class="flex-grow pt-24">
-    <!-- Header Section -->
-    <section class="px-margin-mobile md:px-margin-desktop pt-16 pb-8 max-w-max-width mx-auto text-center">
-        <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-4">Bli Medlem i Klubben</h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-            Uppsala Jazz Club drivs ideellt. Som medlem stödjer du livejazzen, underlättar bokningar av internationella stjärnor och får själv rabatterat inträde på alla våra evenemang.
-        </p>
-    </section>
+<body
+    class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative selection:bg-primary-container/30 selection:text-primary-container">
+    <!-- Global Texture Overlay -->
+    <div class="fixed inset-0 texture-overlay z-[9999]"></div>
+    <!-- TopNavBar -->
+    <div id="header-placeholder"></div>
 
-    <!-- Tiers Section -->
-    <section class="px-margin-mobile md:px-margin-desktop py-8 max-w-max-width mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            
-            <!-- Tier 1 -->
-            <div class="flex flex-col bg-surface-container-low border-2 border-surface-variant rounded-2xl p-8 relative hover:border-primary-container/50 transition-all duration-300">
-                <h3 class="font-headline-md text-headline-md text-on-background mb-2">Studerande & Ungdom</h3>
-                <p class="text-on-surface-variant text-sm mb-6">För dig under 26 år eller med giltigt kårleg.</p>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-4xl font-extrabold text-primary-container">100 kr</span>
-                    <span class="text-on-surface-variant text-sm">/ år</span>
+    <main class="flex-grow pt-24">
+        <!-- Header Section -->
+        <section class="px-margin-mobile md:px-margin-desktop pt-16 pb-8 max-w-max-width mx-auto text-center">
+            <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container mb-4">Gör
+                Skillnad för Jazzen</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Hjälp oss att fortsätta sprida musikalisk magi och improvisationsglädje. Bli en del av Uppsala Jazz Club
+                idag.
+            </p>
+        </section>
+
+        <!-- Membership Section -->
+        <section class="px-margin-mobile md:px-margin-desktop py-8 max-w-5xl mx-auto mb-16">
+            <div class="glass-card border-2 border-outline-variant rounded-2xl p-8 md:p-12 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
+                    <!-- Left Side: Information & Value Proposition -->
+                    <div class="lg:col-span-3 flex flex-col gap-6">
+                        <span
+                            class="font-label-bold text-label-bold text-primary-container tracking-[0.2em] uppercase">Medlemskap</span>
+                        <h2 class="font-headline-md text-headline-lg-mobile md:text-headline-md text-on-background">Bli
+                            en av oss i Uppsala Jazz Club</h2>
+
+                        <div class="font-body-md text-on-surface-variant flex flex-col gap-4 leading-relaxed">
+                            <p>
+                                En förening är ingenting utan sina medlemmar! Det är medlemmarna i föreningen som har
+                                möjligheten att påverka föreningens verksamhet och bidra till ett mer levande jazzutbud
+                                i Uppsala.
+                            </p>
+                            <p>
+                                Uppsala Jazz Club arrangerar varje år flertalet konserter och event med det allra bästa
+                                inom jazz. Som medlem hos oss får du rabatt på våra evenemang. Du får även kontinuerligt
+                                information om jazzrelaterade event och annat aktuellt. Vi är helt enkelt en mötesplats
+                                för både inbitna och nyfrälsta jazzfantaster!
+                            </p>
+                        </div>
+
+                        <div class="border-t border-surface-variant/30 pt-6 mt-2">
+                            <h3 class="font-label-bold text-xs uppercase tracking-wider text-on-background mb-4">Vad
+                                innebär medlemskapet?</h3>
+                            <ul class="flex flex-col gap-4 text-sm text-on-surface-variant">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5">check_circle</span>
+                                    <span><strong>Rabatterat inträde:</strong> Medlemsrabatt på samtliga av klubbens
+                                        konserter och evenemang.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5">check_circle</span>
+                                    <span><strong>Aktuella nyheter:</strong> Kontinuerlig information om jazzrelaterade
+                                        event och annat aktuellt i Uppsala.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="material-symbols-outlined text-primary-container text-xl shrink-0 mt-0.5">check_circle</span>
+                                    <span><strong>Möjlighet att påverka:</strong> Inflytande över föreningens verksamhet
+                                        och val av framtida artister genom din rösträtt.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: CTA / Price Card -->
+                    <div
+                        class="lg:col-span-2 bg-surface-container/60 border-2 border-primary-container/30 rounded-xl p-8 flex flex-col items-center text-center gap-6 shadow-xl relative overflow-hidden">
+                        <div
+                            class="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/5 rounded-full filter blur-xl">
+                        </div>
+
+                        <span
+                            class="material-symbols-outlined text-5xl text-primary-container animate-pulse">loyalty</span>
+
+                        <div class="flex flex-col gap-1">
+                            <span
+                                class="font-label-bold text-xs uppercase tracking-widest text-on-surface-variant">Årsmedlemskap</span>
+                            <div class="flex items-baseline justify-center gap-1">
+                                <span class="text-6xl font-black text-primary-container tracking-tight">200 kr</span>
+                                <span class="text-on-surface-variant text-base">/ år</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full border-t border-surface-variant/30 my-2"></div>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <a href="https://member.myclub.se/forms/1945/vQwV0yJ5OQ/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-full bg-primary-container hover:bg-transparent hover:text-primary-container text-on-primary-container font-label-bold py-4 px-6 rounded-lg border-2 border-primary-container transition-all duration-300 flex items-center justify-center gap-2 text-base shadow-lg shadow-primary-container/10">
+                                <span>Bli medlem nu</span>
+                                <span class="material-symbols-outlined text-lg">open_in_new</span>
+                            </a>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">
+                                Klicka på länken ovan för att fylla i registreringsformuläret i vårt säkra medlemssystem
+                                MyClub och slutföra din anmälan.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-                <ul class="flex flex-col gap-4 text-sm text-on-surface mb-8 flex-grow">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Rabatt på samtliga konserter
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Månadsbrev med programuppdateringar
-                    </li>
-                </ul>
-                <a href="#ansok-form" class="w-full text-center border-2 border-primary-container hover:bg-primary-container hover:text-on-primary-container text-primary-container font-label-bold py-3 rounded-lg transition-all duration-300">
-                    Välj Nivå
-                </a>
             </div>
+        </section>
+    </main>
 
-            <!-- Tier 2 (Highlighted) -->
-            <div class="flex flex-col bg-surface-container-high border-4 border-primary-container rounded-2xl p-8 relative lg:-translate-y-4 shadow-xl z-10 hover:shadow-primary-container/10 transition-all duration-300">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container text-xs font-label-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                    Populärast
-                </div>
-                <h3 class="font-headline-md text-headline-md text-on-background mb-2">Ordinarie Medlem</h3>
-                <p class="text-on-surface-variant text-sm mb-6">Vårt mest populära medlemskap för jazzälskare.</p>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-5xl font-black text-primary-container">250 kr</span>
-                    <span class="text-on-surface-variant text-sm">/ år</span>
-                </div>
-                <ul class="flex flex-col gap-4 text-sm text-on-surface mb-8 flex-grow">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Rabatt på samtliga konserter
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Månadsbrev med programuppdateringar
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Rösträtt vid klubbens årsmöte
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Exklusiva förhandsbokningar
-                    </li>
-                </ul>
-                <a href="#ansok-form" class="w-full text-center bg-primary-container hover:brightness-110 text-on-primary-container font-label-bold py-3 rounded-lg transition-all duration-300 shadow-md shadow-primary-container/10">
-                    Välj Nivå
-                </a>
-            </div>
-
-            <!-- Tier 3 -->
-            <div class="flex flex-col bg-surface-container-low border-2 border-surface-variant rounded-2xl p-8 relative hover:border-primary-container/50 transition-all duration-300">
-                <h3 class="font-headline-md text-headline-md text-on-background mb-2">Stödmedlem / Guld</h3>
-                <p class="text-on-surface-variant text-sm mb-6">För dig som vill bidra extra till livemusikens överlevnad.</p>
-                <div class="flex items-baseline gap-1 mb-8">
-                    <span class="text-4xl font-extrabold text-primary-container">500+ kr</span>
-                    <span class="text-on-surface-variant text-sm">/ år</span>
-                </div>
-                <ul class="flex flex-col gap-4 text-sm text-on-surface mb-8 flex-grow">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Alla ordinarie medlemsförmåner
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Guldmedlemsbrev & specialerbjudanden
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary-container text-lg">check_circle</span>
-                        Omnämnande på hemsidan (frivilligt)
-                    </li>
-                </ul>
-                <a href="#ansok-form" class="w-full text-center border-2 border-primary-container hover:bg-primary-container hover:text-on-primary-container text-primary-container font-label-bold py-3 rounded-lg transition-all duration-300">
-                    Välj Nivå
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Sign-up Form Section -->
-    <section id="ansok-form" class="px-margin-mobile md:px-margin-desktop py-16 max-w-2xl mx-auto">
-        <div class="glass-card border-4 border-surface-variant rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
-            <!-- Form Header -->
-            <div class="relative z-10 text-center mb-10">
-                <h2 class="font-headline-md text-headline-md text-primary-container mb-2">Medlemsansökan</h2>
-                <p class="text-sm text-on-surface-variant">Fyll i dina uppgifter nedan så skickar vi betalningsinformation via e-post.</p>
-            </div>
-
-            <!-- Actual Form -->
-            <form id="membership-form" class="relative z-10 flex flex-col gap-6">
-                <div class="flex flex-col gap-2">
-                    <label for="name" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">Namn</label>
-                    <input type="text" id="name" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors" placeholder="Ditt fullständiga namn">
-                </div>
-
-                <div class="flex flex-col gap-2">
-                    <label for="email" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">E-postadress</label>
-                    <input type="email" id="email" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors" placeholder="namn@exempel.se">
-                </div>
-
-                <div class="flex flex-col gap-2">
-                    <label for="phone" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">Telefonnummer</label>
-                    <input type="tel" id="phone" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors" placeholder="070-123 45 67">
-                </div>
-
-                <div class="flex flex-col gap-2">
-                    <label for="tier" class="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant">Medlemstyp</label>
-                    <select id="tier" required class="bg-background/80 border-2 border-surface-variant focus:border-primary-container rounded-lg p-3 text-on-background focus:ring-0 transition-colors">
-                        <option value="student">Studerande & Ungdom (100 kr/år)</option>
-                        <option value="regular" selected>Ordinarie Medlem (250 kr/år)</option>
-                        <option value="support">Stödmedlem / Guld (Valfritt belopp, min 500 kr/år)</option>
-                    </select>
-                </div>
-
-                <div class="flex items-start gap-3 mt-2">
-                    <input type="checkbox" id="consent" required class="bg-background border-2 border-surface-variant text-primary-container focus:ring-0 rounded mt-1">
-                    <label for="consent" class="text-xs text-on-surface-variant leading-relaxed select-none">
-                        Jag samtycker till att Uppsala Jazz Club sparar mina uppgifter för medlemsregister och utskick i enlighet med GDPR.
-                    </label>
-                </div>
-
-                <button type="submit" class="w-full bg-primary-container hover:brightness-110 text-on-primary-container font-label-bold py-4 rounded-lg border-2 border-primary-container hover:border-primary-container transition-all duration-300 mt-4 flex items-center justify-center gap-2 text-base">
-                    <span>Skicka Ansökan</span>
-                    <span class="material-symbols-outlined text-sm">send</span>
-                </button>
-            </form>
-
-            <!-- Success Message (Hidden by default) -->
-            <div id="form-success" class="hidden relative z-10 text-center py-8 flex flex-col items-center gap-4">
-                <span class="material-symbols-outlined text-6xl text-primary-container animate-pulse">check_circle</span>
-                <h3 class="font-headline-md text-headline-md text-primary-container">Tack för din ansökan!</h3>
-                <p class="text-on-surface-variant max-w-sm">
-                    Vi har tagit emot dina uppgifter. En bekräftelse och betalningsinstruktioner har skickats till din angivna e-postadress.
-                </p>
-                <button onclick="resetForm()" class="mt-6 border-2 border-surface-variant hover:border-primary-container text-on-surface-variant hover:text-primary-container px-6 py-2 rounded-lg text-sm transition-colors">
-                    Skicka en till
-                </button>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- Footer -->
-<div id="footer-placeholder"></div>
-<script src="app.js"></script>
-
-<script>
-    const form = document.getElementById('membership-form');
-    const successDiv = document.getElementById('form-success');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Custom simple animation: fade out form and show success
-        form.classList.add('transition-all', 'duration-300', 'opacity-0', 'pointer-events-none');
-        setTimeout(() => {
-            form.classList.add('hidden');
-            successDiv.classList.remove('hidden');
-            successDiv.classList.add('animate-fade-in');
-        }, 300);
-    });
-
-    function resetForm() {
-        form.reset();
-        successDiv.classList.add('hidden');
-        form.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
-    }
-</script>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="app.js"></script>
 </body>
+
 </html>
