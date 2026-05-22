@@ -9,10 +9,43 @@ This repository contains the source code for the Uppsala Jazz Club website.
 * **`fetcher/`**: Contains a Python script (`fetch_events.py`) and its configuration (`pyproject.toml`) that fetches the latest event data from the Uppsala Jazz Club Facebook page.
 * **`.github/workflows/`**: Contains the GitHub Actions workflow (`update-events.yml`) that automatically runs the fetcher script daily to update the `data/events.json` file.
 
-## Event Fetcher
+## Facebook Events Integration
 
-The events are fetched automatically via a GitHub Action every day at 03:00 UTC. 
+The upcoming concerts section on the website is completely automated. A Python script runs daily via GitHub Actions, pulling data from the Uppsala Jazz Club Facebook page and generating a static `data/events.json` file. 
 
+To keep this pipeline running without manual intervention, the repository relies on a **Never-Expiring Page Access Token** from Meta.
+
+### Architecture Flow
+1. **GitHub Actions Workflow** triggers every night (and can be manually triggered).
+2. The workflow executes `fetch_events.py`, injecting the `FB_PAGE_ACCESS_TOKEN` secret.
+3. The script fetches upcoming events via the **Facebook Graph API** (`/v20.0/{page-id}/events`).
+4. If changes are detected, the workflow commits the updated `data/events.json` file back to the repo, which automatically pushes the updates live via GitHub Pages.
+
+---
+
+### Required Environment Variables & Secrets
+To configure or fix the integration, ensure the following secret is set in the repository under **Settings > Secrets and variables > Actions**:
+
+*   `FB_PAGE_ACCESS_TOKEN`: The long-lived, non-expiring Meta Page Access Token.
+
+*Note: Because this application is purely internal and used by the Page Admin, it runs in **Standard Access** mode. You do **not** need to submit the Meta App for App Review or get Business Verification.*
+
+---
+
+### Maintenance: How to Regenerate the Token
+If the token is ever compromised, deleted, or revoked, follow these high-level steps to replace it:
+
+1. **Permissions:** Ensure your personal Facebook account is an Admin of the Uppsala Jazz Club Facebook Page.
+2. **Meta App:** Log into [Meta for Developers](https://developers.facebook.com/) and ensure you have a Business/Other app set up with the **`pages_read_engagement`** permission enabled under the *"Manage everything on your Page"* use case.
+3. **Generate Short-Lived Token:** Go to the **Graph API Explorer** tool, select your app, and click *Get User Access Token*. 
+4. **Extend Token:** Take that temporary token to the **Access Token Debugger** tool and click *Extend Access Token* to turn it into a 60-day token.
+5. **Extract Permanent Token:** Take the 60-day token back to the Graph API Explorer and run a `GET` request to `me/accounts`. Find the Uppsala Jazz Club entry in the JSON response—the `access_token` listed *inside* that specific block is your **permanent page token**.
+6. **Verify:** Paste that final token back into the Access Token Debugger. The **Expires** field must say **"Never"**.
+7. **Update GitHub:** Save this new token as `FB_PAGE_ACCESS_TOKEN` in your GitHub repository secrets.
+
+---
+
+### Running the Fetcher Locally
 To run the fetcher locally:
 
 1. Ensure you have Python 3.10+ installed.
