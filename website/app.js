@@ -164,7 +164,21 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDate.textContent = dateStr;
         modalTime.textContent = timeStr;
         modalDescription.textContent = event.description || '';
-        modalFbLink.href = event.url || '#';
+
+        const url = event.url;
+        if (!url || url === '#') {
+            modalFbLink.classList.add('hidden');
+        } else {
+            modalFbLink.classList.remove('hidden');
+            modalFbLink.href = url;
+            if (url.includes('facebook.com')) {
+                modalFbLink.innerHTML = `Se på Facebook <span class="material-symbols-outlined text-sm">open_in_new</span>`;
+            } else if (url.includes('ukk.se')) {
+                modalFbLink.innerHTML = `Läs mer på UKK <span class="material-symbols-outlined text-sm">open_in_new</span>`;
+            } else {
+                modalFbLink.innerHTML = `Läs mer <span class="material-symbols-outlined text-sm">open_in_new</span>`;
+            }
+        }
 
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
