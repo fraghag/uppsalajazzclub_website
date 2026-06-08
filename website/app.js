@@ -51,9 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const EVENTS_URL = 'data/events.json';
 
     const images = [
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuCuFV_j1eTaRENz9a9K4KnKFEXcYS-zJBnEnBw9go3kQ_mF_8iyRRbfl0iPxRC5g_wOX6wAyjC4SdOFNLaEfBCtRMBSIOXBOEBm4fMth1_CmNmh-Pf32bs0LByAHfFPLvFEvZs1Hx8wRs-ZAgmJQWh-_Aj8NF6JH5Rd1fvn8WGbJkAZ_Az2DfDcPypH4nfPaCaymYeuq2RU548OY-7eT5qTEaP-Wfa9P-ws4lA4hpk6_-ViY7ut033pT0ggRrXxTkrJ5fCb0nMxPzMe",
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAib9QqIb9jsfx9koWAFHZGes0fWgCajM37Za-ggvjy3R8o0Gam7kc67ZSYxc43oQZxWt39vGZ33CLbjw86EbnDUFSO68cqpHHyV0DfiQUGNkuQEtX82N-jDlkqNI1N08MSE2hxYfShvrLTnaorXmPFQlcuEF-mARpy7vCNuUu-nlKVKMQ7vZ3AfDxsp-o_E9zJ11Sd1klTm5g7vp2ALRjVDyyvra0jw_2W3tsVg7GM0b1YyB91GKWXH-zPorJw5beNWwjTgyZq_srs",
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuBO2eR5LgZ99Yh0ZkBS8Ha8UHnQLhLjDHURWkeQ3Xmdn-YnxVmpBDfphVgCo-ad0kAHGMe1k7Hj6BaVUSp98tivCYXJmgUJgsVA25KbkuYCZm-5wXezmBtL1Cb5HDiOjhVm7-f3RfN_-XxgJHzvTBA6YF648zCOeKoEawhSJ21wSRd8ObUHDNefjPuo8OJ-TJ6o2zmr3GX5cDEmVWikMDKRVQ9zqklgvfp1j2m13vIH5_nDOV1qXHOpv4x22h_6PawTscuYtTa6aJRm"
+        "assets/jazz_saxophonist.png",
+        "assets/jazz_double_bass.png",
+        "assets/jazz_piano.png",
+        "assets/jazz_trumpet.png"
     ];
 
     function formatShortDate(dateString) {
