@@ -225,13 +225,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchEvents() {
         try {
-            const response = await fetch(EVENTS_URL);
+            const MANUAL_EVENTS_URL = 'data/manual_events.json';
+            const [response, manualResponse] = await Promise.all([
+                fetch(EVENTS_URL),
+                fetch(MANUAL_EVENTS_URL).catch(() => null)
+            ]);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             let events = await response.json();
+
+            if (manualResponse && manualResponse.ok) {
+                try {
+                    const manualEvents = await manualResponse.json();
+                    if (Array.isArray(manualEvents)) {
+                        events = events.concat(manualEvents);
+                    }
+                } catch (e) {
+                    console.error('Error parsing manual_events.json:', e);
+                }
+            }
+
             eventsContainer.innerHTML = '';
 
             const pastEventsContainer = document.getElementById('past-events-container');

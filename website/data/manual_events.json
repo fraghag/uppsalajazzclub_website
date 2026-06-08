@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ukk_sommarjazz_01",
+    "name": "Häng på Lilla torget – Joel Oscarsson Löwgren Trio",
+    "start_time": "2026-07-03T14:00:00+02:00",
+    "end_time": "2026-07-03T16:00:00+02:00",
+    "place": "Lilla Torget, Uppsala Konsert & Kongress",
+    "description": "Sommarjazz på utomhusscenen med några av Uppsalas mest spännande unga jazzmusiker – presenterat av Uppsala Jazz Club. Den 3 juli kommer Joel Oscarsson Löwgren med trio till Sommar på UKK. Med sig har han Pontus Bornelind på piano samt Kalle Ljungholm på trummor. De tre Uppsalabördiga musikerna har utvecklat ett nära samspel och tar avstamp i Ahmad Jamals trio från 1950- och 1960-talet. Det bjuds på nytänkande pianotrioarrangemang, lekfullhet och sväng!",
+    "url": "https://ukk.se/hang-pa-lilla-torget-prova-pa-salsa-bachata-3/",
+    "image": null
+  },
+  {
+    "id": "ukk_sommarjazz_02",
+    "name": "Häng på Lilla torget – Staffan Berglund Kvintett",
+    "start_time": "2026-07-10T14:00:00+02:00",
+    "end_time": "2026-07-10T16:00:00+02:00",
+    "place": "Lilla Torget, Uppsala Konsert & Kongress",
+    "description": "Sommarjazz på utomhusscenen med några av Uppsalas mest spännande unga jazzmusiker – presenterat av Uppsala Jazz Club. Staffan Berglund är en Uppsalabaserad trumpetare och arrangör, nyutexaminerad från Kungliga Musikhögskolan, som sammanfogar sina kontakter därifrån med Uppsalas jazzscen i en kvintett bestående av trumpet, tenorsax och pianotrio. Inspirerade av 50- och 60-talets mindre sättningar, såsom de med Clifford Brown, Benny Golson, Art Farmer och andra, kommer gruppen bjuda på musik ur jazzens standardrepertoar. Både välkända pärlor och mer djupgående gräv, i en blandning av arrangemang och improvisation. Bandet består, förutom Staffan Berglund på trumpet, av saxofonisten Tyko Ruin, pianisten Elsa Westling, kontrabasisten Johan Tengholm och trummisen Kalle Ljungholm.",
+    "url": "https://ukk.se/hang-pa-lilla-torget-spela-cornhole-njut-av-god-mat-21/",
+    "image": null
+  },
+  {
+    "id": "ukk_sommarjazz_03",
+    "name": "Häng på Lilla torget – Joel Oscarsson Löwgren Kvintett",
+    "start_time": "2026-07-19T14:00:00+02:00",
+    "end_time": "2026-07-19T16:00:00+02:00",
+    "place": "Lilla Torget, Uppsala Konsert & Kongress",
+    "description": "Sommarjazz på utomhusscenen med några av Uppsalas mest spännande unga jazzmusiker – presenterat av Uppsala Jazz Club. Den 19 juli kommer Joel Oscarsson Löwgren till Sommar på UKK. Joel har gjort sig ett namn på jazzscenen och visar med sväng och fokus på akustiskt sound var skåpet ska stå. Med sig har han Elvira Lundstedt, stjärnskottet från Sandviken som tar alla scener med storm, Malte Boqvist, göteborgspianisten som inte lämnar någon oberörd, och Gustav Lind, Norrköpings trumtalang. Med tradition som utgångspunkt uppstår magi!",
+    "url": "https://ukk.se/hang-pa-lilla-torget-spela-cornhole-njut-av-god-mat-15/",
+    "image": null
+  }
+]
