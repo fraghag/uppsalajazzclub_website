@@ -5,6 +5,13 @@ on:
   push:
     branches: ["main"]
 
+  # Also run after the Update Events workflow finishes, since commits
+  # made by GITHUB_TOKEN do not trigger the `push` event above.
+  workflow_run:
+    workflows: ["Update Events Data"]
+    types: [completed]
+    branches: ["main"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -23,6 +30,15 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    # For workflow_run: only deploy when the triggering run succeeded AND
+    # actually pushed a new commit (branch HEAD advanced past the SHA the
+    # triggering run started on).
+    if: >-
+      ${{
+        github.event_name != 'workflow_run' ||
+        (github.event.workflow_run.conclusion == 'success' &&
+         github.event.workflow_run.head_sha != github.sha)
+      }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
